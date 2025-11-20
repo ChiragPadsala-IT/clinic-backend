@@ -11,15 +11,15 @@ export class Appointment{
 
     @ManyToOne(() => Patient, (patient) => patient.appointments, { onDelete: "CASCADE" })
     @JoinColumn({ name: "patient_id" })
-    patient!: number;
+    patient!: Patient;
 
     @ManyToOne(() => Therapist, (therapist) => therapist.appointments, { onDelete: "SET NULL", nullable: true })
     @JoinColumn({ name: "therapist_id" })
-    therapist!: number;
+    therapist!: Therapist;
 
     @ManyToOne(() => ServiceEntiry, (serviceEntiry) => serviceEntiry.appointments, { onDelete: "SET NULL", nullable: true })
     @JoinColumn({ name: "service_id" })
-    service!: number;
+    service!: ServiceEntiry;
 
     @Column({ type: "date" })
     date!: string;
