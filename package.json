@@ -9,6 +9,7 @@
         "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
     },
     "dependencies": {
+        "axios": "^1.13.2",
         "bcrypt": "^5.1.0",
         "class-validator": "^0.14.0",
         "cors": "^2.8.5",
