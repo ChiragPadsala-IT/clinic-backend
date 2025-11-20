@@ -31,6 +31,6 @@ export class Patient{
     @Column({type:"timestamp"})
     created_at!: Date;
 
-    @OneToMany(() => Appointment, (appointment) => appointment.patient);
-    appointments! = Appointment[];
+    @OneToMany(() => Appointment, (appointment) => appointment.patient)
+    appointments! : Appointment[];
 }

@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import Appointment from './Appointment';
+import {Appointment} from './Appointment';
 
 @Entity("therapist")
 export class Therapist {
@@ -25,6 +25,6 @@ export class Therapist {
     @Column({ type: "timestamp" })
     created_at!: Date;
 
-    @OneToMany(() => { Appointment }, (appointment) => appointment.therapist);
+    @OneToMany(() => Appointment, (appointment) => appointment.therapist)
     appointments!: Appointment[];
 }
