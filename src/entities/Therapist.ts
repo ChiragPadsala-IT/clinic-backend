@@ -26,5 +26,5 @@ export class Therapist {
     created_at!: Date;
 
     @OneToMany(() => { Appointment }, (appointment) => appointment.therapist);
-    appointment!: Appointment[];
+    appointments!: Appointment[];
 }
