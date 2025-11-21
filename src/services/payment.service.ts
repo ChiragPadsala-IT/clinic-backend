@@ -52,5 +52,21 @@ export class PaymentService{
         amount: string,
         method: string,
         meta?: any
-    ){}
+    ) {
+        const appointment = await appointmentRepo.findOne({
+            where: { appointment_id: appointmentId }
+        });
+
+        if (!appointment) throw new Error("Appointment not found");
+
+        const payment = paymentRepo.create({
+            appointment,
+            amount,
+            payment_method: method,
+            payment_status: "paid",
+            payment_meta: meta,
+        });
+
+        return paymentRepo.save(payment)
+    }
 }
