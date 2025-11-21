@@ -3,7 +3,7 @@ import { ServiceEntiry } from "../entities/ServiceEntity";
 
 const serviceRepo = AppDataSource.getMongoRepository(ServiceEntiry);
 
-export class Service{
+export class ServiceService{
     static create(payload: Partial<ServiceEntiry>) {
         const s = serviceRepo.create(payload);
         return serviceRepo.save(s);
@@ -14,6 +14,6 @@ export class Service{
     }
 
     static getById(id: number) {
-        return serviceRepo.findOne({where:{service_id:id}})
+        return serviceRepo.findOne({ where: { service_id: id } });
     }
 }
