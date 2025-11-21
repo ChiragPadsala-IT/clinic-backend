@@ -27,3 +27,16 @@ export const generateAccessToken = async (): Promise <string> => {
     return response.data.access_token;
 }
 
+export const paypalApi = async (path: string, method: "GET" | "POST", body?: any) => {
+    const token = await generateAccessToken();
+
+    return axios({
+        url: `${PAYPAL_BASE_URL}${path}`,
+        method,
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        data: body || undefined
+    })
+}

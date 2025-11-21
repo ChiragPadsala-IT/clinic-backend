@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGenerat
 import { Appointment } from "./Appointment";
 
 @Entity("payment")
-export class Patment{
+export class Payment{
 
     @PrimaryGeneratedColumn()
     payment_id!: number;
