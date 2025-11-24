@@ -27,7 +27,7 @@ export const getAppointment = async (req: Request, res: Response, next: NextFunc
     }
 }
 
-export const listAppointment = async (req: Request, res: Response, next: NextFunction) => { 
+export const listAppointments = async (req: Request, res: Response, next: NextFunction) => { 
     try {
         const list = await AppointmentService.list();
         res.json({ data: list });
