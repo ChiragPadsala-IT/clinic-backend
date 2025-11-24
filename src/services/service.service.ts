@@ -1,7 +1,7 @@
 import { AppDataSource } from "../config/database";
 import { ServiceEntiry } from "../entities/ServiceEntity";
 
-const serviceRepo = AppDataSource.getMongoRepository(ServiceEntiry);
+const serviceRepo = AppDataSource.getRepository(ServiceEntiry);
 
 export class ServiceService{
     static create(payload: Partial<ServiceEntiry>) {
