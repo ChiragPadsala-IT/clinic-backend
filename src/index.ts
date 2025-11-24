@@ -9,6 +9,8 @@ import appointmentRoutes from './routes/appointment.routes';
 import patientRoutes from './routes/patient.routes';
 import paymentRoutes from './routes/payment.routes';
 import serviceRoutes from './routes/service.routes';
+import therapistRoutes from './routes/therapist.routes';
+import { errorHandler } from "./middleware/error.middleware";
 
 dotenv.config();
 
@@ -31,7 +33,7 @@ async function start() {
         //routes
         app.use("/api/auth", authRoutes);
         app.use("/api/patients", patientRoutes);
-        // app.use("/api/therapists", therapistsRoutes);
+        app.use("/api/therapists", therapistRoutes);
         app.use("/api/services", serviceRoutes);
         app.use("/api/appointments", appointmentRoutes);
         app.use("/api/payments", paymentRoutes);
@@ -39,7 +41,17 @@ async function start() {
         app.get("/", (_req: Request, res: Response) => {
             res.json({ok: true, message: "Physio Clinic API"});
         })
+
+        //error Handler
+        app.use(errorHandler);
+
+        app.listen(PORT, () => {
+            console.log(`Server running on http://localhost:${PORT}`)
+        })
     } catch (error) {
-        
+        console.log("Failed to start app: ", error)
+        process.exit(1);
     }
 }
+
+start();
