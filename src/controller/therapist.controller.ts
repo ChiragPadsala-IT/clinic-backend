@@ -28,7 +28,7 @@ export const getAllTherapist = async (req: Request, res: Response, next: NextFun
     }
 }
 
-export const getTherapistId = async (req: Request, res: Response, next: NextFunction) => {
+export const getTherapistById = async (req: Request, res: Response, next: NextFunction) => {
     try {
         if (req.user?.role === "admin") {
             const { id } = req.params;
