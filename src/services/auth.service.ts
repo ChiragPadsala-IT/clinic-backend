@@ -9,7 +9,7 @@ dotenv.config();
 const staffRepo = AppDataSource.getRepository(Staff);
 
 export class AuthService {
-    static async registerStaff(name: string, email: string, password: string, role = "admin") {
+    static async registerStaff(name: string, email: string, password: string, role: string) {
         const existing = await staffRepo.findOne({ where: { email } });
 
         if (existing) throw new Error("Email already used.");
