@@ -11,7 +11,7 @@ export const createService = async (req: Request, res: Response, next: NextFunct
     }
 }
 
-export const listService = async (req: Request, res: Response, next: NextFunction) => {
+export const listServices = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const data = await ServiceService.list();
         res.json({ data });
