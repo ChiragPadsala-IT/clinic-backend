@@ -15,7 +15,7 @@ export const createTherapist = async (req: Request, res: Response, next: NextFun
     }
 }
 
-export const listAllTherapist = async (req: Request, res: Response, next: NextFunction) => {
+export const getAllTherapist = async (req: Request, res: Response, next: NextFunction) => {
     try {
         if (req.user?.role === "admin") {
             const therapist = await TherapistService.getAll();
